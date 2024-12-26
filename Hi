@@ -1,0 +1,11 @@
+class CommandInterface:
+    def __init__(self):
+        self.installed_apps = []
+
+    def install_app(self, app_name):
+        self.installed_apps.append(app_name)
+        print(f"Installed app: {app_name}")
+
+# Instantiate and use the command interface
+command_interface = CommandInterface()
+command_interface.install_app("Example App")
