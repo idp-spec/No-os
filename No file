@@ -1,0 +1,30 @@
+# No-os Code Structure
+
+## Taskbar and Launcher Setup
+
+```python
+class Taskbar:
+    def __init__(self):
+        self.position = "top"
+        self.start_button = "Launcher"
+
+    def display(self):
+        print(f"Taskbar is at the {self.position} with a start button called {self.start_button}")
+
+# Instantiate and display the taskbar
+taskbar = Taskbar()
+taskbar.display()
+class AppStore:
+    def __init__(self):
+        self.apps = []
+
+    def show_apps(self):
+        if not self.apps:
+            print("No apps found")
+        else:
+            for app in self.apps:
+                print(app)
+
+# Instantiate and show the App Store
+app_store = AppStore()
+app_store.show_apps()
