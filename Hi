@@ -9,3 +9,20 @@ class CommandInterface:
 # Instantiate and use the command interface
 command_interface = CommandInterface()
 command_interface.install_app("Example App")
+import pyudev
+import subprocess
+
+context = pyudev.Context()
+
+def device_event(observer, device):
+    if device.action == 'add' and 'ID_USB_DRIVER' in device:
+        print(f'Device {device.device_node} connected')
+        # Replace the following command with the one that switches to your OS
+        subprocess.run(['sudo', 'reboot'])
+
+monitor = pyudev.Monitor.from_netlink(context)
+monitor.filter_by(subsystem='usb')
+observer = pyudev.MonitorObserver(monitor, callback=device_event)
+observer.start()
+
+print("Listening for USB device connections...")
