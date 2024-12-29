@@ -8,5 +8,24 @@
 <body>
     <h1>Welcome to No-os</h1>
     <p>This is an ordinary OS.</p>
+
+    <button id="install-button">Install No-os</button>
+
+    <script>
+        document.getElementById('install-button').addEventListener('click', function() {
+            const link = document.createElement('a');
+            link.href = 'file:///C:/Users/asd asdt/Desktop/No-os.exe'; // Update this path as needed
+            link.download = 'No-os.exe';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            link.onload = function() {
+                alert('Installing No-os...');
+                // Code to execute No-os.exe can be added here if needed
+                alert('Installation completed.');
+            };
+        });
+    </script>
 </body>
 </html>
